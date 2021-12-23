@@ -8,7 +8,7 @@ public class ListOfLanguages {
 		languages.addLanguage("C#language");
 		languages.addLanguage("Java language");
 		languages.addLanguage("Python language");
-		languages.addLanguage(".Net language");
+		languages.addLanguage("dotNet language");
 		languages.addLanguage("Java Script language");
 		languages.addLanguage("Perl language");
 		languages.addLanguage("Ruby language");
@@ -20,9 +20,15 @@ public class ListOfLanguages {
 		languages.addLanguage("MEAN and MERN Stack language");
 		languages.printLanguages();
 		languages.deleteLanguage("C language");
+		languages.deleteLanguage("Python language");
 		System.out.println();
 		System.out.println("DELETED LANGUAGES");
-		languages.printLanguages();
+		System.out.println(languages.deleteLanguage("C Language"));
+		System.out.println(languages.deleteLanguage("PHP Language"));
+		
+		System.out.println();
+		System.out.println("UPDATE LANGUAGES");
+		System.out.println(languages.update("dotNet Language", ".Net Language"));
 	}
 
 }

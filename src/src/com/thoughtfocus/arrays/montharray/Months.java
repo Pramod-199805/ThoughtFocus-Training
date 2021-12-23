@@ -7,7 +7,6 @@ public class Months {
 	public void printAll() {
 		for (int i = 0; i < month.length; i++) {
 			System.out.println(month[i]);
-			
 		}
 	}
 
@@ -21,12 +20,23 @@ public class Months {
 
 	public String delete(String enterMonth) {
 		for (int i = 0; i < month.length; i++) {
+			if(month[i]!=null) {
 			if (month[i].equals(enterMonth)) {
 				month[i] = null;
-				return "Month Deleted";
+				return enterMonth+ " Month Deleted";
 			}
-
+		}
 		}
 		return "Not deleted";
 	}
+	
+	public void update(String oldMonth,String newMonth) {
+		for(int i=0;i<month.length;i++) {
+			if(month[i]!=null) {		
+			if(month[i].equals(oldMonth)) {
+				month[i]=newMonth;
+			}
+		}
+	}
+}
 }

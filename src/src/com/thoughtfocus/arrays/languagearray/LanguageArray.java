@@ -9,19 +9,35 @@ public class LanguageArray {
 			language[index] = lang;
 		index++;
 	}
-	
+
 	public void printLanguages() {
-		for(int i=0;i<language.length;i++) {
+		for (int i = 0; i < language.length; i++) {
 			System.out.println(language[i]);
 		}
 	}
-	
+
 	public String deleteLanguage(String lang) {
-		for(int i=0;i<language.length;i++) {
-		if(language[i]==lang)
-			language[i]=null;
-		return "deleted";
+		for (int i = 0; i < language.length; i++) {
+			if (language[i] != null) {
+				if (language[i].equals(lang)) {
+					language[i] = null;
+					return "deleted";
+				}
+			}
+
+		}
+		return "not deleted";
 	}
-		return "Not Deleted";
+
+	public String update(String oldLang, String newLang) {
+		for (int i = 0; i < language.length; i++) {
+			if (language[i] != null) {
+				if (language[i].equals(oldLang)) {
+					language[i] = newLang;
+					return "Langugae Updated";
+				}
+			}
+		}
+		return "Language not updated";
 	}
 }
