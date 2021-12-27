@@ -8,7 +8,8 @@ boolean add(MobileDTO dto) {
 	if(dto!=null) {
 		mobileDetail[index]=dto;
 		index++;
-	}
+		return true;
+		}
 	return false;
 }
 
@@ -29,33 +30,34 @@ public void getAllByBrandName(String brandName) {
 			if(brandName.equals(mobileDetail[index].getBrandName())) {
 				System.out.println(mobileDetail[index]);
 			}
-			else {
-				MobileCustomException mobileException=new MobileCustomException();
-						throw mobileException;
-			}
-		}
-		}		
+		}			
+		}	
+		
 }
 MobileDTO deleteByMobileID( int mobileID) {
-	MobileDTO mobDto=null;
 	for(int index=0;index<mobileDetail.length;index++) {
 		if(mobileDetail[index]!=null) {
 		if(mobileID==mobileDetail[index].getMobileID()) {
 			mobileDetail[index]=null;
-			mobDto=null;
-			return mobDto;
+			return mobileDetail[index];
 		}
 	}
 }
-	return mobDto;
+	
+	MobileCustomException mobileException=new MobileCustomException();
+	throw mobileException;
 }
 
 MobileDTO updateBySerialNumber ( int serialNumber,String mobileName ) {
 	for(int index=0;index<mobileDetail.length;index++) {
+		if(mobileDetail[index]!=null) {
 		if(serialNumber==mobileDetail[index].getSerialNumber()) {
 			mobileDetail[index].setBrandName(mobileName);
+			return mobileDetail[index];
 		}
 	}
+	
+}
 	return null;
 }
 

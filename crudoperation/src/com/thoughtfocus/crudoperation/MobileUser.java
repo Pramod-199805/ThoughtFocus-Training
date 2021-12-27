@@ -33,21 +33,23 @@ public class MobileUser {
 		dao.add(mobileDto);
 		dao.add(mobileDto1);
 		dao.add(mobileDto2);
-			
 		dao.getAll();
 		System.out.println();
-		try {
-		dao.getAllByBrandName("Nokias");
-		}catch(MobileCustomException e) {
-			e.exceptionMessage();
-		}
+		
+		dao.getAllByBrandName("Nokia");
+		
 		System.out.println();
 		
 		dao.updateBySerialNumber(123456, "Xiaomi");
 		dao.getAll();
 		System.out.println();
 		
-		dao.deleteByMobileID(4564);
+		try{
+			dao.deleteByMobileID(4565);
+		}catch(MobileCustomException e) {
+			e.exceptionMessage();
+		}
+		
 		dao.getAll();
 		
 		
